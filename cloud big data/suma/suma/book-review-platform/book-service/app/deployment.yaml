@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: book-test
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: book-test
+  template:
+    metadata:
+      labels:
+        app: book-test
+    spec:
+      containers:
+        - name: book-test
+          image: sumavendrapu/book:latest
+          ports:
+            - containerPort: 5000
